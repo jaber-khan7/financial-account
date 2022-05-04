@@ -1,0 +1,119 @@
+/* google font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap");
+
+/* utilities */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
+  font-size: 16 px;
+}
+
+.background-color {
+  background-color: rgb(248 250 252);
+}
+
+h1 {
+  font-size: 2.3rem;
+  color: #242b2e;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  word-spacing: 5px;
+  padding: 2rem 0;
+}
+
+h3 {
+  font-size: 1.2rem;
+  padding: 1rem 0;
+}
+
+h4 {
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+h5 {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.container {
+  max-width: 1140px;
+  margin: auto;
+}
+
+.banner-image img {
+  height: 700px;
+  object-fit: cover;
+}
+
+#account-section {
+  margin: auto;
+}
+
+.financial-accounting {
+  background-color: #242b2e0d;
+  padding: 2rem 3rem;
+}
+
+.income,
+.food,
+.rent,
+.clothes {
+  margin: 1rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.income {
+  margin: 0 auto;
+}
+
+input {
+  flex-basis: 65%;
+  margin-left: 1rem;
+  padding: 4px 10px;
+  border: 1px solid #16121214;
+  border-top-right-radius: 7px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.button {
+  display: block;
+  padding: 7px 40px;
+  margin: 2rem auto;
+  border: 2px solid #1589e2;
+  background-color: #1b98f5;
+  color: #fff;
+  font-weight: 500;
+}
+
+.total-save {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.calculate-save {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#save {
+  margin: 0;
+  padding: 3px 40px;
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- font awesome -->
+    <script
+      src="https://kit.fontawesome.com/3fd646aeed.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- responsive css -->
+    <link rel="stylesheet" href="css/responsive.css" />
+    <title>my financial account</title>
+  </head>
+  <body>
+    <!-- ====================== header section  ====================== -->
+    <section class="mb-5">
+      <div class="container">
+        <h1>My financial account</h1>
+        <div class="row row-cols-1 row-cols-md-2">
+          <!-- banner image -->
+          <div class="col p-0">
+            <div class="banner-image">
+              <img class="img-fluid" src="images/banner-image.jpg" alt="" />
+            </div>
+          </div>
+
+          <!-- financial accounting -->
+          <div
+            id="account-section"
+            class="col ms-auto"
+            style="max-width: 500px"
+          >
+            <div class="financial-accounting shadow-sm">
+              <!-- income -->
+              <h3 class="text-center">Income</h3>
+              <div class="income">
+                <h5>Income:</h5>
+                <input
+                  id="income-input"
+                  type="text"
+                  placeholder="enter your income"
+                />
+              </div>
+
+              <!-- expenses -->
+              <div class="expenses">
+                <h3 class="text-center mt-3 mb-0">Expenses</h3>
+                <!-- food -->
+                <div class="food">
+                  <h5>Food:</h5>
+                  <input
+                    id="food-input"
+                    type="text"
+                    placeholder="food expenses"
+                  />
+                </div>
+
+                <!-- rent -->
+                <div class="rent">
+                  <h5>Rent:</h5>
+                  <input
+                    id="rent-input"
+                    type="text"
+                    placeholder="rent expenses"
+                  />
+                </div>
+
+                <!-- clothes -->
+                <div class="clothes">
+                  <h5>Clothes:</h5>
+                  <input
+                    id="clothes-input"
+                    type="text"
+                    placeholder="clothes expenses"
+                  />
+                </div>
+              </div>
+
+              <!-- calculate button -->
+              <button id="calculate-btn" class="button">Calculate</button>
+
+              <!-- total expenses -->
+              <div class="total-expenses">
+                <h4>Total Expenses: <span id="total-expenses">00</span></h4>
+                <h4>Balance: <span id="balance">00</span></h4>
+              </div>
+
+              <!-- saving -->
+              <div class="total-save">
+                <div class="save">
+                  <h3 class="mb-0">Save:</h3>
+                </div>
+                <div class="calculate-save">
+                  <input
+                    id="save-input"
+                    type="text"
+                    style="max-width: 100px"
+                    placeholder="save"
+                  />
+                  <span style="margin: 0 1rem">%</span>
+                  <button id="save" class="button">Save</button>
+                </div>
+              </div>
+
+              <!-- remaining balance -->
+              <div class="remaining-balance">
+                <h4>Saving Amount: <span id="saving-amount">00</span></h4>
+                <h4>
+                  Remaining Balance: <span id="remaining-balance">00</span>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- script -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
