@@ -1,70 +1,153 @@
-// income value
-let incomeInput = document.getElementById("income-input");
+// get expenses input value
+function getExpensesInput(expensesId) {
+  // expenses
+  let input = document.getElementById(expensesId);
+  let expenses = parseFloat(input.value);
+  // input.value = "";
+  return expenses;
+}
 
-// food expense
-let foodExpense = document.getElementById("food-input");
+// get total expenses
+function getTotalExpenses() {
+  // get food expenses
+  let foodExpenses = getExpensesInput("food-input");
+  // get rent expenses
+  let rentExpenses = getExpensesInput("rent-input");
+  // get clothes expenses
+  let clothesExpenses = getExpensesInput("clothes-input");
 
-// rent expense
-let rentExpense = document.getElementById("rent-input");
+  // get total expenses
+  let totalExpenses = foodExpenses + rentExpenses + clothesExpenses;
+  return totalExpenses;
+}
 
-// clothes expense
-let clothesExpense = document.getElementById("clothes-input");
+// get current balance
+function getCurrentBalance() {
+  let income = getExpensesInput("income-input");
+  let totalExpenses = getTotalExpenses();
 
-// saveing amount input
-let saveInput = document.getElementById("save-input");
+  // show total expenses field
+  let showTotalExpenses = document.getElementById("total-expenses");
+  let showTotalExpensesValue = parseFloat(showTotalExpenses.innerText);
+  let currentBalance = income - totalExpenses;
+  return currentBalance;
+}
 
 // add event handler to the calculate button
-let calculateBtn = document.getElementById("calculate-btn");
-calculateBtn.addEventListener("click", function () {
-  // get the value of total income
-  let incomeValueStr = incomeInput.value;
-  let incomeValue = parseFloat(incomeValueStr);
+let calculateButton = document.getElementById("calculate-btn");
+calculateButton.addEventListener("click", function () {
+  // get income value
+  let income = getExpensesInput("income-input");
 
-  // get the value of food expense
-  let foodExpenseValueStr = foodExpense.value;
-  let foodExpenseValue = parseFloat(foodExpenseValueStr);
+  // total expenses
+  let totalExpenses = getTotalExpenses();
 
-  // get the value of rent expense
-  let rentExpenseValueStr = rentExpense.value;
-  let rentExpenseValue = parseFloat(rentExpenseValueStr);
+  // show total expenses field
+  let showTotalExpenses = document.getElementById("total-expenses");
+  let showTotalExpensesValue = parseFloat(showTotalExpenses.innerText);
+  let currentBalance = getCurrentBalance();
 
-  // get the value of clothes expense
-  let clothesExpenseValueStr = clothesExpense.value;
-  let clothesExpenseValue = parseFloat(clothesExpenseValueStr);
+  if (isNaN(income) == true) {
+    showTotalExpenses.innerText = `fill all the field`;
+    showTotalExpenses.style.fontSize = "12px";
+    showTotalExpenses.style.color = "red";
+    showTotalExpenses.style.fontWeight = "400";
+  } else if (isNaN(totalExpenses) != true) {
+    showTotalExpenses.innerText = totalExpenses;
+  } else {
+    showTotalExpenses.innerText = `fill all the field`;
+    showTotalExpenses.style.fontSize = "12px";
+    showTotalExpenses.style.color = "red";
+    showTotalExpenses.style.fontWeight = "400";
+  }
 
-  // add the value of food, rent and clothes expenses
-  let totalExpensesValue =
-    foodExpenseValue + rentExpenseValue + clothesExpenseValue;
-
-  // show the value of total expenses
-  let showExpenses = document.getElementById("total-expenses");
-  let showExpensesValueStr = showExpenses.innerText;
-  let showExpensesValue = parseFloat(showExpensesValueStr);
-  showExpenses.innerText = totalExpensesValue;
-
-  // get current balance
-  let currentBalance = incomeValue - totalExpensesValue;
-
-  // show current balance after expenses
+  // show balance
   let showBalance = document.getElementById("balance");
-  let showBalanceValueStr = showBalance.innerText;
-  let currentBalanceValue = parseFloat(showBalanceValueStr);
-  showBalance.innerText = currentBalance;
-
-  // clear the input fields
-  incomeInput.value = "";
-  foodExpense.value = "";
-  rentExpense.value = "";
-  clothesExpense.value = "";
-
-  // return the current balance
-  return currentBalance;
+  let balance = parseFloat(showBalance.innerText);
+  if (totalExpenses > income) {
+    showBalance.innerText = `fill all the field`;
+    showBalance.style.color = "red";
+    showBalance.style.fontSize = "12px";
+    showBalance.style.fontWeight = "400";
+  } else if (isNaN(income) == true) {
+    showBalance.innerText = `fill all the field`;
+    showBalance.style.color = "red";
+    showBalance.style.fontSize = "12px";
+    showBalance.style.fontWeight = "400";
+  } else if (isNaN(totalExpenses) == true) {
+    showBalance.innerText = `fill all the field`;
+    showBalance.style.color = "red";
+    showBalance.style.fontSize = "12px";
+    showBalance.style.fontWeight = "400";
+  } else {
+    showBalance.innerText = currentBalance;
+  }
 });
 
-// add event handler to the save button
+// add event listener to the save button
 let saveButton = document.getElementById("save");
 saveButton.addEventListener("click", function () {
-  let saveInputValueStr = saveInput.value;
-  let saveInputValue = parseFloat(saveInputValueStr);
-  console.log(saveInputValue);
+  // get income value
+  let income = getExpensesInput("income-input");
+
+  // total expenses
+  let totalExpenses = getTotalExpenses();
+
+  // show total expenses field
+  let currentBalance = getCurrentBalance();
+
+  // get the input value from save input field
+  let saveInput = document.getElementById("save-input");
+  let saveValue = parseFloat(saveInput.value);
+
+  // get total save
+  let totalSave = (currentBalance * saveValue) / 100;
+
+  // remaining balance
+  let remainingAmount = currentBalance - totalSave;
+  let remainingBalance = parseFloat(remainingAmount.toFixed(2));
+
+  // show total saving value
+  let showSavingAmount = document.getElementById("saving-amount");
+  let savingAmount = parseFloat(showSavingAmount.innerText);
+  if (saveValue > 100) {
+    showSavingAmount.innerText = `fill all the field`;
+    showSavingAmount.style.color = "red";
+    showSavingAmount.style.fontSize = "12px";
+    showSavingAmount.style.fontWeight = "400";
+  } else if (isNaN(totalSave) == true) {
+    showSavingAmount.innerText = `fill all the field`;
+    showSavingAmount.style.color = "red";
+    showSavingAmount.style.fontSize = "12px";
+    showSavingAmount.style.fontWeight = "400";
+  } else {
+    showSavingAmount.innerText = totalSave;
+  }
+
+  // show remaining balance
+  let showRemainingBalance = document.getElementById("remaining-balance");
+  let showBalance = parseFloat(showRemainingBalance.innerText);
+  if (isNaN(savingAmount) == true) {
+    showRemainingBalance.innerText = `fill all the field`;
+    showRemainingBalance.style.color = "red";
+    showRemainingBalance.style.fontSize = "12px";
+    showRemainingBalance.style.fontWeight = "400";
+  } else if (isNaN(income) == true) {
+    showRemainingBalance.innerText = `fill all the field`;
+    showRemainingBalance.style.color = "red";
+    showRemainingBalance.style.fontSize = "12px";
+    showRemainingBalance.style.fontWeight = "400";
+  } else if (isNaN(totalExpenses) == true) {
+    showRemainingBalance.innerText = `fill all the field`;
+    showRemainingBalance.style.color = "red";
+    showRemainingBalance.style.fontSize = "12px";
+    showRemainingBalance.style.fontWeight = "400";
+  } else if (remainingBalance < 0) {
+    showRemainingBalance.innerText = `fill all the field`;
+    showRemainingBalance.style.color = "red";
+    showRemainingBalance.style.fontSize = "12px";
+    showRemainingBalance.style.fontWeight = "400";
+  } else {
+    showRemainingBalance.innerText = remainingBalance;
+  }
 });

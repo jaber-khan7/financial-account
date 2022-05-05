@@ -9,6 +9,10 @@
     height: 290px;
   }
 
+  .financial-accounting {
+    padding: 2rem 0;
+  }
+
   #account-section {
     margin-top: 2rem;
   }
@@ -18,11 +22,24 @@
   .rent,
   .clothes {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 
   input {
     margin: 0.3rem 0 0;
+    text-align: center;
+  }
+
+  .calculate-save {
+    margin: 0 10px;
+  }
+
+  #save-input {
+    margin: 5px 0;
+  }
+
+  #save {
+    margin: 5px 0;
   }
 }
 
